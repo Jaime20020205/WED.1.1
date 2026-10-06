@@ -1,1 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FiltrosPro - Catálogo de Filtros</title>
+  <meta name="description" content="Catálogo online de filtros de aceite, aire, combustible e hidráulicos.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
+  <!-- CABECERA -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="FiltrosPro" onerror="this.style.display='none'">
+        <span>FiltrosPro</span>
+      </a>
+      <nav class="nav">
+        <a href="index.html">Inicio</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Menú">☰</button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <h1>Catálogo profesional de filtros</h1>
+      <p>Encuentra el filtro que necesitas por referencia, marca o medida.</p>
+      <a href="catalogo.html" class="btn btn-primary">Ver catálogo completo</a>
+    </div>
+  </section>
+
+  <!-- CATEGORÍAS -->
+  <section class="container section">
+    <h2>Categorías</h2>
+    <div class="grid-categorias">
+      <a href="catalogo.html?cat=aceite" class="card-categoria">
+        <h3>Filtros de Aceite</h3>
+        <p>Protección del motor</p>
+      </a>
+      <a href="catalogo.html?cat=aire" class="card-categoria">
+        <h3>Filtros de Aire</h3>
+        <p>Máxima admisión</p>
+      </a>
+      <a href="catalogo.html?cat=combustible" class="card-categoria">
+        <h3>Filtros de Combustible</h3>
+        <p>Limpieza del sistema</p>
+      </a>
+      <a href="catalogo.html?cat=hidraulico" class="card-categoria">
+        <h3>Filtros Hidráulicos</h3>
+        <p>Maquinaria pesada</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- DESTACADOS -->
+  <section class="container section">
+    <h2>Productos destacados</h2>
+    <div id="destacados" class="grid-productos"></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 FiltrosPro. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/filtros.js"></script>
+  <script>
+    // Mostrar 4 productos destacados
+    const cont = document.getElementById('destacados');
+    filtros.slice(0, 4).forEach(f => {
+      cont.innerHTML += `
+        <a href="producto.html?id=${f.id}" class="card-producto">
+          <img src="${f.imagen}" alt="${f.nombre}" onerror="this.src='images/placeholder.png'">
+          <h3>${f.nombre}</h3>
+          <p class="ref">Ref: ${f.referencia}</p>
+          <p class="marca">${f.marca}</p>
+        </a>`;
+    });
+  </script>
+</body>
+</html>
