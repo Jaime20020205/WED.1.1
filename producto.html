@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Producto - FiltrosPro</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo"><span>FiltrosPro</span></a>
+      <nav class="nav">
+        <a href="index.html">Inicio</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="container section" id="ficha-producto">
+    <!-- Se rellena por JavaScript -->
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 FiltrosPro.</p>
+    </div>
+  </footer>
+
+  <script src="js/filtros.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const id = parseInt(params.get('id'));
+    const f = filtros.find(x => x.id === id);
+    const cont = document.getElementById('ficha-producto');
+
+    if (!f) {
+      cont.innerHTML = '<h1>Producto no encontrado</h1><a href="catalogo.html">Volver al catálogo</a>';
+    } else {
+      cont.innerHTML = `
+        <a href="catalogo.html" class="volver">← Volver al catálogo</a>
+        <div class="ficha">
+          <div class="ficha-img">
+            <img src="${f.imagen}" alt="${f.nombre}" onerror="this.src='images/placeholder.png'">
+          </div>
+          <div class="ficha-info">
+            <h1>${f.nombre}</h1>
+            <p class="ref">Referencia: <strong>${f.referencia}</strong></p>
+            <p class="marca">Marca: <strong>${f.marca}</strong></p>
+            <p class="cat">Categoría: <strong>${f.categoria}</strong></p>
+            <h3>Descripción</h3>
+            <p>${f.descripcion}</p>
+            <h3>Especificaciones</h3>
+            <ul>
+              <li>Altura: ${f.altura}</li>
+              <li>Diámetro exterior: ${f.diametro}</li>
+              <li>Rosca: ${f.rosca}</li>
+            </ul>
+            <a href="contacto.html?ref=${f.referencia}" class="btn btn-primary">Solicitar información</a>
+          </div>
+        </div>`;
+    }
+  </script>
+</body>
+</html>
