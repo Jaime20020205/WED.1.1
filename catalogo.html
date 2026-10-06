@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo - FiltrosPro</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo"><span>FiltrosPro</span></a>
+      <nav class="nav">
+        <a href="index.html">Inicio</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="container section">
+    <h1>Catálogo de filtros</h1>
+
+    <!-- BUSCADOR Y FILTROS -->
+    <div class="buscador">
+      <input type="text" id="buscar" placeholder="🔍 Buscar por referencia, nombre o marca...">
+      <select id="categoria">
+        <option value="">Todas las categorías</option>
+        <option value="aceite">Aceite</option>
+        <option value="aire">Aire</option>
+        <option value="combustible">Combustible</option>
+        <option value="hidraulico">Hidráulico</option>
+      </select>
+    </div>
+
+    <p id="resultado-info"></p>
+    <div id="lista-productos" class="grid-productos"></div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 FiltrosPro.</p>
+    </div>
+  </footer>
+
+  <script src="js/filtros.js"></script>
+  <script src="js/catalogo.js"></script>
+</body>
+</html>
