@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - FiltrosPro</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo"><span>FiltrosPro</span></a>
+      <nav class="nav">
+        <a href="index.html">Inicio</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="container section">
+    <h1>Contacto</h1>
+    <p>¿Necesitas un presupuesto o tienes dudas sobre un filtro? Escríbenos.</p>
+
+    <!-- Usamos Formspree (gratis) para recibir los mensajes por email -->
+    <form action="https://formspree.io/f/TU_ID_FORMSPREE" method="POST" class="formulario">
+      <label>Nombre
+        <input type="text" name="nombre" required>
+      </label>
+      <label>Email
+        <input type="email" name="email" required>
+      </label>
+      <label>Referencia del filtro (opcional)
+        <input type="text" name="referencia" id="ref">
+      </label>
+      <label>Mensaje
+        <textarea name="mensaje" rows="5" required></textarea>
+      </label>
+      <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+    </form>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 FiltrosPro.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Si viene con ?ref=XXX desde la ficha de producto, lo rellenamos
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('ref')) document.getElementById('ref').value = params.get('ref');
+  </script>
+</body>
+</html>
